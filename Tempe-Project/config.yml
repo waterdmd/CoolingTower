@@ -1,0 +1,42 @@
+# ==============================================================================
+# --- CONFIGURATION for the YOLO Cooling Tower Detection Pipeline ---
+# ==============================================================================
+
+# --- Input Data and Models ---
+# Paths to your pre-trained model files
+paths:
+  yolo_model: "models/best.pt"
+  sam2_checkpoint: "sam2_checkpoints/sam2.1_hiera_base_plus.pt"
+
+# --- Output Directories ---
+# All directories where intermediate and final files are saved
+dirs:
+  stitched_grids: "data/tempe_stitched_3x3_grids" 
+  hitl_review: "data/tempe_hitl_review_grids"
+  accepted: "data/accepted_grids"
+  rejected: "data/rejected_grids"
+  final_masks: "data/tempe_masks_accepted_only"
+  outputs: "outputs"
+
+# --- Final Output Filenames ---
+# The names of the final output files
+files:
+  final_stitched_mask_png: "tempe_stitched_final_mask.png"
+  grid_tile_map_json: "tempe_grid_tile_map.json"
+  all_box_coords_pkl: "tempe_all_box_coords.pkl"
+  selected_images_pkl: "tempe_selected_images.pkl"
+
+# --- Geographic & Tile Settings ---
+geo:
+  min_lat: 33.41399630383636
+  max_lat: 33.42304002116594
+  min_lon: -111.93944163172745
+  max_lon: -111.9286791593764
+  zoom: 21
+  tile_url_template: "https://gis.maricopa.gov/imagery/rest/services/Aerial2022Sep2022OctOrtho/MapServer/tile/{z}/{y}/{x}"
+
+# --- Processing Settings ---
+processing:
+  threads: 30
+  tile_size: 256
+  grid_size: 3
