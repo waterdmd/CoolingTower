@@ -1,0 +1,108 @@
+# Cooling Tower Detection & Segmentation Configuration
+
+# Paths
+paths:
+  # Input/Output directories (can be overridden by command-line arguments)
+  input_dir: "data/sample_images"
+  output_dir: "outputs"
+  
+  # Model paths
+  yolo_model: "models/yolo/best.pt"
+  sam2_checkpoint: "models/sam2/checkpoints/sam2.1_hiera_base_plus.pt"
+  sam2_config: "models/sam2/configs/sam2.1/sam2.1_hiera_b+.yaml"
+  
+  # Output subdirectories (relative to output_dir)
+  detections_subdir: "detections"
+  masks_subdir: "masks"
+  review_images_subdir: "review_images"
+  accepted_subdir: "accepted_grids"
+  rejected_subdir: "rejected_grids"
+
+# YOLO Detection Settings
+detection:
+  conf_threshold: 0.4
+  img_size: 768
+  augment: true
+  verbose: false
+  device: "cuda"  # or "cpu"
+
+# SAM2 Segmentation Settings
+segmentation:
+  # Bounding box expansion
+  box_expansion_percentage: 0.25
+  box_fixed_padding: 50
+  
+  # Output settings
+  output_mask_size: 768
+  
+  # Device settings
+  device: "cuda"  # or "cpu"
+
+# Processing Settings
+processing:
+  # Multi-threading
+  num_workers: 4
+  
+  # Batch processing
+  batch_size: 8
+  
+  # Enable progress bars
+  show_progress: true
+  
+  # Clear CUDA cache between batches (helps with memory)
+  clear_cuda_cache: true
+
+# Human-in-the-Loop (HITL) Review Settings
+hitl:
+  # Minimum confidence to include in review
+  review_conf_threshold: 0.4
+  
+  # Image display size in jupyter (pixels)
+  display_width: 600
+  
+  # Box visualization colors (BGR format)
+  box_color: [0, 255, 0]  # Green
+  box_thickness: 2
+  
+  # Text settings
+  text_color: [255, 255, 255]  # White
+  text_bg_color: [0, 255, 0]  # Green
+  text_bg_alpha: 0.5
+
+# Visualization Settings
+visualization:
+  # Figure settings
+  fig_size: [8, 8]
+  dpi: 100
+  
+  # Save settings
+  save_bbox_inches: "tight"
+  save_pad_inches: 0
+  
+  # Colormap for masks
+  mask_cmap: "gray"
+
+# Logging Settings
+logging:
+  # Enable timing logs
+  log_timing: true
+  
+  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  log_level: "INFO"
+  
+  # Save logs to file
+  save_logs: true
+  log_file: "outputs/pipeline.log"
+
+# Advanced Settings
+advanced:
+  # SAM2 specific
+  sam2_multimask_output: true
+  sam2_use_box_prompt: true
+  
+  # Memory management
+  max_image_cache: 100  # Maximum images to keep in memory
+  
+  # File formats
+  mask_format: "png"
+  detection_format: "pkl"  # pickle format for detections
