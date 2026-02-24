@@ -29,6 +29,12 @@ This project provides an end-to-end solution for:
 - 16GB+ RAM
 - 10GB+ free disk space
 
+## 🗺️ Interactive Web Map (ArcGIS)
+
+Explore the full results of the detection pipeline across Maricopa County using our interactive web map. The map overlays precise SAM2-generated segmentation masks and YOLO bounding boxes directly onto high-resolution 2022 aerial imagery.
+
+Click here for [Maricopa County Cooling Towers ArcGIS Map](https://asu.maps.arcgis.com/apps/mapviewer/index.html?webmap=effae91a84a64610b79886e523f6bb14)
+
 ## 🛠️ Installation
 
 ### 1. Clone the repository
