@@ -34,7 +34,7 @@ This project provides an end-to-end solution for:
 Explore the full results of the detection pipeline across Maricopa County using our interactive web map. The map overlays precise SAM2-generated segmentation masks and YOLO bounding boxes directly onto high-resolution 2022 aerial imagery.
 
 Click here for [Maricopa County Cooling Towers ArcGIS Map](https://asu.maps.arcgis.com/apps/mapviewer/index.html?webmap=effae91a84a64610b79886e523f6bb14)
-
+Click here for [Maricoa County Cooling Tower Segmentation ArcGIS Map](https://asu.maps.arcgis.com/home/item.html?id=44e5bdca32064c75bda37ea5e880e6c1)
 ## 🛠️ Installation
 
 ### 1. Clone the repository
